@@ -15,8 +15,15 @@ function setup() {
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
   background('black');
+
+  
 }
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
 
 /**
  * draw
@@ -25,7 +32,7 @@ function setup() {
  */
 function draw() {
   
-    if (x < 105 && x >= 0) {
+    /* if (x < 105 && x >= 0) {
         fill(255, 0, 0);
     }
 
@@ -64,20 +71,27 @@ function draw() {
     }
     if (x >= 1260) {
         fill(0, 0, 0);
+    } */
+
+    fill(255, 0 ,0);
+    background(0,0,0);
+
+    for(i = 0; i < 5; i++) {
+        ellipse(xi, yxi, 80, 80);
+
+        if (yi <= 0 || yi >= 720) {
+            yspeed = -yspeed;
+         }
+
+        if (xi <= 0 || xi >= 1280) {
+            xspeed = -xspeed;
+        }
+
+        xi = xi+ xspeed;
+        yi = yi + yspeed;
     }
-  // teken een cirkel
-  ellipse(x,y,80,80);
 
-  if (y <= 0 || y >= 720) {
-      yspeed = -yspeed;
-  }
-
-  if (x <= 0 || x >= 1280) {
-      xspeed = -xspeed
-  }
-
-  x = x + xspeed;
-  y = y + yspeed;
+  
   
   
 }
