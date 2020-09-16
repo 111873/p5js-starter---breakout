@@ -1,8 +1,39 @@
-x = 50;
-y = 50;
+class Bal {
+   constructor(x, y, speedX, speedY) {
+      this.x = x;
+      this.y = y;
+      this.speedX = speedX;
+      this.speedY = speedY;
+      this.diameter = 80;
+   }
 
-xspeed = 2;
-yspeed = 3;
+   show() {
+      fill(255, 100, 255);
+      ellipse(this.x, this.y, this.diameter, this.diameter);
+   }
+
+   update() {
+      this.x = this.x + this.speedX;
+      this.y = this.y + this.speedY;
+
+      if (this.x <= 0 || this.x >= 1280 ) {
+         this.speedX = this.speedX * -1
+      }
+
+      if (this.y <= 0 || this.y >= 720) {
+         this.speedY = this.speedY * -1;
+      }
+   }
+}
+
+class Plank {
+    constructor(x, y, length, height)
+}
+
+
+
+
+var ballen = [/* maak hier je ballen */];
 
 /**
  * setup
@@ -11,19 +42,9 @@ yspeed = 3;
  */
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
-  createCanvas(1260, 720);
-
-  // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('black');
-
-  
+  createCanvas(1280, 720);
 }
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-}
+ 
 
 /**
  * draw
@@ -31,67 +52,13 @@ function getRandomInt(min, max) {
  * uitgevoerd door de p5 library, nadat de setup functie klaar is
  */
 function draw() {
+  // Kleur de achtergrond blauw, zodat je het kunt zien
+  background('blue');
   
-    /* if (x < 105 && x >= 0) {
-        fill(255, 0, 0);
-    }
-
-    if (x < 210 && x >= 105) {
-        fill(255, 128, 0);
-    }
-    if (x < 315 && x >= 210) {
-        fill(255, 255, 0);
-    }
-    if (x < 420 && x >= 315) {
-        fill(128, 255, 0);
-    }
-    if (x < 525 && x >= 420) {
-        fill(0, 255, 0);
-    }
-    if (x < 630 && x >= 525) {
-        fill(0, 255, 128);
-    }
-    if (x < 735 && x >= 630) {
-        fill(0, 255, 255);
-    }
-    if (x < 840 && x >= 735) {
-        fill(0, 128, 255);
-    }
-    if (x < 945 && x >= 840) {
-        fill(0, 0, 255);
-    }
-    if (x < 1050 && x >= 945) {
-        fill(127, 0, 255);
-    }
-    if (x < 1155 && x >= 1050) {
-        fill(255, 0, 255);
-    }
-    if (x < 1260 && x >= 1155) {
-        fill(255, 0, 127);
-    }
-    if (x >= 1260) {
-        fill(0, 0, 0);
-    } */
-
-    fill(255, 0 ,0);
-    background(0,0,0);
-
-    for(i = 0; i < 5; i++) {
-        ellipse(xi, yxi, 80, 80);
-
-        if (yi <= 0 || yi >= 720) {
-            yspeed = -yspeed;
-         }
-
-        if (xi <= 0 || xi >= 1280) {
-            xspeed = -xspeed;
-        }
-
-        xi = xi+ xspeed;
-        yi = yi + yspeed;
-    }
-
-  
-  
-  
+  // ga alle ballen af
+  for (var i = 0; i < ballen.length; i++) {
+    var bal = ballen[i];
+    bal.show()
+    bal.update();
+  }
 }
