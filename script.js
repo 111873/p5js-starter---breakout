@@ -1,9 +1,9 @@
 class Bal {
-   constructor(x, y, speedX, speedY) {
-      this.x = x;
-      this.y = y;
-      this.speedX = speedX;
-      this.speedY = speedY;
+   constructor(_x, _y, _speedX, _speedY) {
+      this.x = _x;
+      this.y = _y;
+      this.speedX = _speedX;
+      this.speedY = _speedY;
       this.diameter = 80;
    }
 
@@ -26,8 +26,25 @@ class Bal {
    }
 }
 
-class Plank {
-    constructor(x, y, length, height)
+class Balk {
+    constructor(_x, _y, _width, _height) {
+        this.x = _x;
+        this.y = _y;
+        this.width = _width;
+        this.height = _height;
+    }
+
+    show() {
+        fill(181, 101, 30);
+        rect(_x, _y, _width, _height);
+    }
+
+    update() {
+        this.x = mouseX;
+        this.y = mouseY;
+    }
+        
+    
 }
 
 
