@@ -1,4 +1,17 @@
+class Spel {
+    x;
+    y;
+
+    constructor(_x, _y) {
+        this.x = _x
+        this.y= _y
+    }
+}
 class Bal {
+    speedX;
+    speedY;
+    diameter;
+
    constructor(_x, _y, _speedX, _speedY) {
       this.x = _x;
       this.y = _y;
